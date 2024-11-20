@@ -1,0 +1,97 @@
+/* 전체 페이지 기본 스타일 */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* 상단에서 하단으로 세로 배치 */
+}
+
+/* 이미지 미리보기 영역 스타일 */
+.imagePreview {    
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */	
+    flex: 1;
+    overflow: hidden; /* 이미지가 영역을 넘치지 않도록 설정 */
+    width: 100vw; /* 페이지 전체 너비를 차지 */
+    max-height: 40vh; /* 전체 화면의 최대 40% 높이 */
+    margin-top: 1%; /* 위쪽 여백 설정 */
+    margin-bottom: 1%; /* 아래쪽 여백 설정 */
+}
+
+/* 이미지 스타일 */
+.img {
+	height: 40vh; /* 비율 유지하면서 높이 자동 조정 */
+    object-fit: cover; /* 이미지 비율을 유지하며 꽉 채우기 */
+}
+
+/* OCR 결과 스타일 */
+.ocrResult {
+    display: flex; /* 플렉스 박스 사용 */
+    flex-direction: column; /* 세로 방향 배치 */
+    align-items: center; /* 중앙 정렬 */
+    width: 100%; /* 전체 너비 사용 */
+}
+
+.ocrResult .ocr-field {
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: space-between; /* 전체 요소를 가로 중앙 정렬 */
+    width: 100%; /* 전체 너비를 차지하도록 설정 */
+}
+
+.ocrResult .ocr-field label {
+    flex: 0 0 20%; /* 15% 너비 */
+    margin-left: 3%; /* 왼쪽 여백 */
+    text-align: center; /* 중앙 정렬 */
+}
+
+.ocrResult .ocr-field select,
+.ocrResult .ocr-field input {
+    flex: 0 0 55%; /* 65% 너비 */
+    min-width: 0; /* 최소 너비 설정 */
+}
+
+.ocrResult .ocr-field button {
+    flex: 0 0 15%; /* 너비 자동 조정 */
+    margin-right: 3%; /* 오른쪽 여백 */
+    text-align: center; /* 중앙 정렬 */
+}
+
+
+
+
+/* button-container 스타일 */
+.button-container {
+    display: flex;
+    justify-content: space-between; /* 버튼 간 간격 균등 배치 */
+    align-items: stretch; /* 하위 요소의 높이를 동일하게 설정 */
+    width: 100%; /* 화면 전체 너비 */
+    margin-top: 20px; /* 상단 여백 */
+}
+
+.button-container button {
+    flex: 1; /* 버튼이 동일한 너비를 차지하도록 설정 */
+    padding: 10px 0; /* 버튼 높이 조절 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    font-weight: bold; /* 글자 굵게 */
+    color: white; /* 글자 색상 흰색 */
+    border: none; /* 버튼 테두리 제거 */
+    cursor: pointer; /* 마우스 오버 시 커서 변경 */
+    margin: 0 5px; /* 버튼 간 여백 */
+}
+
+.Btn_Save {
+    background-color: green; /* 초록색 배경 */
+}
+
+.Btn_Breach {
+    background-color: red; /* 빨간색 배경 */
+}
+
+.Btn_Return {
+    background-color: blue; /* 파란색 배경 */
+}
+
+
