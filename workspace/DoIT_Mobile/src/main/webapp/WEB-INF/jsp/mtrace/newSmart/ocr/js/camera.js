@@ -66,6 +66,14 @@ function captureAndSubmit() {
         formData.append('currentTime', currentTime);
         formData.append('deviceInfo', deviceInfo);
         
+        // URL에서 추출한 데이터 추가
+        const urlParams = new URLSearchParams(window.location.search);
+        formData.append('storeName', urlParams.get('storeName'));
+        formData.append('businessNumber', urlParams.get('businessNumber'));
+        formData.append('address', urlParams.get('address'));
+        formData.append('name', urlParams.get('name'));
+        formData.append('storeType', urlParams.get('storeType'));
+        
         fetch('/DoIT_Mobile/newSmart/ocr/OCR_MeatLabel', {
         	method: 'POST',
             body: formData

@@ -21,6 +21,7 @@
 	<!-- 버튼 컨테이너 추가 -->
     <div class="button-container">
         <button id="snap" class="camera-button">📷</button>
+        <button id="CheckResultBtn" class="CheckResultBtn">결과 확인</button>
     </div>
     
     

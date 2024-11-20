@@ -45,6 +45,19 @@ public class Servlet_JSP_OCR_MeatLabel extends HttpServlet {
     	System.out.println("imagePart.getSize(): " + imagePart.getSize());
 
         if (imagePart != null) {
+        	String[] arrStore = {req.getParameter("storeName"), 
+        							req.getParameter("businessNumber"), 
+        							req.getParameter("address"), 
+        							req.getParameter("name"), 
+        							req.getParameter("storeType")
+        						};
+        	
+            //System.out.println("storeName: " + req.getParameter("storeName"));
+            //System.out.println("businessNumber: " + req.getParameter("businessNumber"));
+            //System.out.println("address: " + req.getParameter("address"));
+            //System.out.println("name: " + req.getParameter("name"));
+            //System.out.println("storeType: " + req.getParameter("storeType"));
+        	
             // Red-Box 비율
             double redBoxWidthRatio = Double.parseDouble(req.getParameter("widthRatio")) / 100;
             double redBoxHeightRatio = Double.parseDouble(req.getParameter("heightRatio")) / 100;
@@ -61,7 +74,7 @@ public class Servlet_JSP_OCR_MeatLabel extends HttpServlet {
             System.out.println("tempFilePath: " + tempFilePath);
             System.out.println("filePath: " + filePath);
             
-         // 업로드 디렉토리가 존재하지 않으면 생성
+            // 업로드 디렉토리가 존재하지 않으면 생성
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) {
                 uploadDir.mkdir(); 
@@ -155,8 +168,13 @@ public class Servlet_JSP_OCR_MeatLabel extends HttpServlet {
             	System.out.println(i+1 + "/" + arrValue.length + "\t" + arrKey[i] + ": " + arrValue[i]);
             }
             
+            for(int i=0; i<arrStore.length; i++){
+            	System.out.println(i+1 + "/" + arrStore.length + "\t" + arrStore[i]);
+            }
+            
             session.setAttribute("arrKey", arrKey);
             session.setAttribute("arrValue", arrValue);
+            session.setAttribute("arrStore", arrStore);
            
         } else {
             resp.getWriter().println("이미지 데이터가 수신되지 않았습니다.");

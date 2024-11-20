@@ -1,9 +1,14 @@
-// js/confirm.js
 
-// 초기화 버튼
-function resetInput(index) {
-    document.getElementById("input_" + index).value = "";
-}
+
+
+//String[] arrKey = (String[]) session.getAttribute("arrKey");
+const arrKey = session.getAttribute("arrKey");
+const arrValue = session.getAttribute("arrValue");
+const arrStore = session.getAttribute("arrStore");
+
+console.log('arrKey:', arrKey);
+console.log('arrValue:', arrValue);
+console.log('arrStore:', arrStore);
 
 // 등급 선택 옵션 업데이트 함수
 function updateGradeOptions() {

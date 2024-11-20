@@ -5,7 +5,8 @@
     // 세션에서 arrKey와 arrValue 가져오기
     String[] arrKey = (String[]) session.getAttribute("arrKey");
     String[] arrValue = (String[]) session.getAttribute("arrValue");
-
+    String[] arrStore = (String[]) session.getAttribute("arrStore");
+    //const arrStore = session.getAttribute("arrStore");
     // null 처리: 세션에 값이 없는 경우 빈 배열로 초기화
     if (arrKey == null) {
         arrKey = new String[0];
@@ -14,7 +15,6 @@
         arrValue = new String[0];
     }
 %>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -22,7 +22,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>축산물 이력제 점검</title>
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath()%>/newSmart/ocr/css/CSS_Confirm.css"> <!-- CSS 파일 연결 -->
-    <script>	    
+    
+    <script>
         // 등급 선택 옵션 업데이트 함수
 		function updateGradeOptions() {
 		    const meatType = document.getElementById("meatType").value;
@@ -169,9 +170,6 @@
 			}
 		}
 		
-
-
-        
 		// ----------------------------------------------------------------------------------------------------------------
 		// ----------------------------------------------------------------------------------------------------------------
         // 페이지가 로드될 때 기본값에 맞는 등급 목록을 설정
@@ -179,7 +177,7 @@
             updateGradeOptions(); // 등급 목록 표시
             updateMeatOptions(); // 고기 부위 옵션 초기 설정
          	// 부위명칭(대), 부위명칭(소) 설정
-	        setMeatOptions();
+	        //setMeatOptions();
             const var1 = "<%= arrValue[1] %>";
             const var2 = "<%= arrValue[2] %>";
             
@@ -190,6 +188,11 @@
             console.log("식육의종류: ", var2);
             console.log("대분할: ", selectedMeatPart);
             console.log("소분할: ", selectedSubMeatPart);
+            console.log("arrStore: ", arrStore[0]);
+            console.log("arrStore: ", arrStore[1]);
+            console.log("arrStore: ", arrStore[2]);
+            console.log("arrStore: ", arrStore[3]);
+            console.log("arrStore: ", arrStore[4]);
             
         };
 
@@ -275,8 +278,6 @@
 	                    <% } else { %>
 	                        <input type="text" id="input_<%= i %>" value="<%= arrValue[i] %>" />
 	                    <% } %>
-	
-	                    <button type="button" onclick="resetInput(<%= i %>)">초기화</button>
 	                </div>
 	    <%
 	            }
@@ -293,12 +294,10 @@
     <!-- 다른 동작으로 이동할 수 있는 버튼 -->
     <div class="button-container">
     	<button id="Btn_Save" class="Btn_Save">저장</button>
-    	
     	<button id="Btn_MisInput" class="Btn_Breach">위반<br>(오기)</button>
     	<button id="Btn_falsehood" class="Btn_Breach">위반<br>(허위)</button>
     	<button id="Btn_Missing" class="Btn_Breach">위반<br>(누락)</button>
     	<button id="Btn_Etc" class="Btn_Breach">위반<br>(기타)</button>
-    
         <button class="Btn_Return" onclick="location.href='/DoIT_Mobile/newSmart/ocr/OCR_MeatLabel'">↩︎</button>
     </div>
 
